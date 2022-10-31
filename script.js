@@ -24,3 +24,32 @@ function getComputerChoice() {
             break;
     }
 }
+
+function playRound(playerChoice, computerChoice) {
+    if (playerChoice === 'rock') {
+        if (computerChoice === 'rock') {
+            return 'Draw.';
+        } else if (computerChoice === 'paper') {
+            return 'You lose.';
+        } else {
+            return 'You win!'
+        }
+    } else if (playerChoice === 'paper') {
+        if (computerChoice === 'rock') {
+            return 'You win!';
+        } else if (computerChoice === 'paper') {
+            return 'Draw.';
+        } else {
+            return 'You lose.';
+        }
+    } else {
+        if (computerChoice === 'rock') {
+            return 'You lose.';
+        } else if (computerChoice === 'paper') {
+            return 'You win!';
+        } else {
+            return 'Draw';
+        }
+
+    }
+}
