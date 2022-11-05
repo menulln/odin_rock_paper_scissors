@@ -34,9 +34,15 @@ body {
     gap: 30px;
 }
 
-
 .game-button {
     width: 200px;
     height: 200px;
     font-size: 32px;
+}
+
+.result {
+    margin: 0 auto;
+    margin-top: 24px;
+    font-size: 32px;
+    font-weight: bold;
 }
