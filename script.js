@@ -6,10 +6,6 @@ buttonRock.addEventListener('click', playRound);
 buttonPaper.addEventListener('click', playRound);
 buttonScissors.addEventListener('click', playRound);
 
-function getPlayerChoice() {
-    return this.innerHTML.toLowerCase();
-}
-
 function getComputerChoice() {
     let random = Math.floor((Math.random() * 3) + 1);
     switch (random) {
@@ -28,7 +24,13 @@ function getComputerChoice() {
     }
 }
 
-function playRound(playerChoice, computerChoice) {
+function playRound() {
+    const playerChoice = this.innerHTML.toLowerCase();
+    const computerChoice = getComputerChoice();
+    
+    console.log(playerChoice);
+    console.log(computerChoice);
+
     if (playerChoice === 'rock') {
         if (computerChoice === 'rock') {
             return 'Draw.';
@@ -60,7 +62,7 @@ function playRound(playerChoice, computerChoice) {
 function game() {
     let playerScore = 0;
     let computerScore = 0;
-    let playerChoice = getPlayerChoice();
+    //let playerChoice = getPlayerChoice();
     let computerChoice = getComputerChoice();
 
     console.log(`${playerChoice.toUpperCase()} VS ${computerChoice.toUpperCase()}`);
