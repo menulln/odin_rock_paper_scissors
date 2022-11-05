@@ -5,6 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .game {
@@ -27,7 +28,6 @@ body {
 }
 
 .buttons {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,7 +37,8 @@ body {
 .game-button {
     width: 200px;
     height: 200px;
-    font-size: 32px;
+    font-size: 28px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .result {
