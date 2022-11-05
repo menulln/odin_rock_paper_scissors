@@ -57,24 +57,21 @@ function playRound(playerChoice, computerChoice) {
 function game() {
     let playerScore = 0;
     let computerScore = 0;
+    let playerChoice = getPlayerChoice();
+    let computerChoice = getComputerChoice();
 
-    for (let i = 0; i < 5; i++) {
-        let playerChoice = getPlayerChoice();
-        let computerChoice = getComputerChoice();
+    console.log(`${playerChoice.toUpperCase()} VS ${computerChoice.toUpperCase()}`);
 
-        console.log(`${playerChoice.toUpperCase()} VS ${computerChoice.toUpperCase()}`);
+    let gameResult = playRound(playerChoice, computerChoice);
 
-        let gameResult = playRound(playerChoice, computerChoice);
-
-        if (gameResult.match(/win/i)) {
-            playerScore++;
-            console.log(`${gameResult}\nYour Score: ${playerScore}\nCPU Score: ${computerScore}`);
-        } else if (gameResult.match(/lose/i)) {
-            computerScore++;
-            console.log(`${gameResult}\nYour Score: ${playerScore}\nCPU Score: ${computerScore}`);
-        } else {
-            console.log(`${gameResult}\nYour Score: ${playerScore}\nCPU Score: ${computerScore}`);
-        }
+    if (gameResult.match(/win/i)) {
+        playerScore++;
+        console.log(`${gameResult}\nYour Score: ${playerScore}\nCPU Score: ${computerScore}`);
+    } else if (gameResult.match(/lose/i)) {
+        computerScore++;
+        console.log(`${gameResult}\nYour Score: ${playerScore}\nCPU Score: ${computerScore}`);
+    } else {
+        console.log(`${gameResult}\nYour Score: ${playerScore}\nCPU Score: ${computerScore}`);
     }
 
     if (playerScore > computerScore) {
