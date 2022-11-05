@@ -25,66 +25,86 @@ function getComputerChoice() {
 }
 
 function playRound() {
-    const playerChoice = this.innerHTML.toLowerCase();
+    const playerChoice = this.textContent.toLowerCase();
     const computerChoice = getComputerChoice();
-    
-    console.log(playerChoice);
-    console.log(computerChoice);
+    const playerScoreElement = document.querySelector('.score-player');
+    const computerScoreElement = document.querySelector('.score-computer');
+    const result = document.querySelector('.result');
 
-    if (playerChoice === 'rock') {
-        if (computerChoice === 'rock') {
-            return 'Draw.';
-        } else if (computerChoice === 'paper') {
-            return 'You lose.';
+    let playerScore = +playerScoreElement.textContent;
+    let computerScore = +computerScoreElement.textContent;
+
+    if (playerScore < 5 && computerScore < 5) {
+        if (playerChoice === 'rock') {
+            if (computerChoice === 'rock') {
+                result.textContent = 'Draw.';
+                return;
+            } else if (computerChoice === 'paper') {
+                computerScore++;
+                computerScoreElement.textContent = computerScore;
+                if (computerChoice === 5) {
+                    result.textContent = 'Computer won the game.';
+                    return;
+                }
+                result.textContent = 'You lose.';
+                return;
+            } else {
+                playerScore++;
+                playerScoreElement.textContent = playerScore;
+                if (playerScore === 5) {
+                    result.textContent = 'You won the game!';
+                    return;
+                }
+                result.textContent = 'You win!';
+                return;
+            }
+        } else if (playerChoice === 'paper') {
+            if (computerChoice === 'rock') {
+                playerScore++;
+                playerScoreElement.textContent = playerScore;
+                if (playerScore === 5) {
+                    result.textContent = 'You won the game!';
+                    return;
+                }
+                result.textContent = 'You win!';
+                return;
+            } else if (computerChoice === 'paper') {
+                result.textContent = 'Draw.';
+                return;
+            } else {
+                computerScore++;
+                computerScoreElement.textContent = computerScore;
+                if (computerChoice === 5) {
+                    result.textContent = 'Computer won the game.';
+                    return;
+                }
+                result.textContent = 'You lose.';
+                return;
+            }
         } else {
-            return 'You win!'
+            if (computerChoice === 'rock') {
+                computerScore++;
+                computerScoreElement.textContent = computerScore;
+                if (computerChoice === 5) {
+                    result.textContent = 'Computer won the game.';
+                    return;
+                }
+                result.textContent = 'You lose.';
+                return;
+            } else if (computerChoice === 'paper') {
+                playerScore++;
+                playerScoreElement.textContent = playerScore;
+                if (playerScore === 5) {
+                    result.textContent = 'You won the game!';
+                    return;
+                }
+                result.textContent = 'You win!';
+                return;
+            } else {
+                result.textContent = 'Draw';
+                return;
+            }
         }
-    } else if (playerChoice === 'paper') {
-        if (computerChoice === 'rock') {
-            return 'You win!';
-        } else if (computerChoice === 'paper') {
-            return 'Draw.';
-        } else {
-            return 'You lose.';
-        }
-    } else {
-        if (computerChoice === 'rock') {
-            return 'You lose.';
-        } else if (computerChoice === 'paper') {
-            return 'You win!';
-        } else {
-            return 'Draw';
-        }
-
-    }
-}
-
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    //let playerChoice = getPlayerChoice();
-    let computerChoice = getComputerChoice();
-
-    console.log(`${playerChoice.toUpperCase()} VS ${computerChoice.toUpperCase()}`);
-
-    let gameResult = playRound(playerChoice, computerChoice);
-
-    if (gameResult.match(/win/i)) {
-        playerScore++;
-        console.log(`${gameResult}\nYour Score: ${playerScore}\nCPU Score: ${computerScore}`);
-    } else if (gameResult.match(/lose/i)) {
-        computerScore++;
-        console.log(`${gameResult}\nYour Score: ${playerScore}\nCPU Score: ${computerScore}`);
-    } else {
-        console.log(`${gameResult}\nYour Score: ${playerScore}\nCPU Score: ${computerScore}`);
-    }
-
-    if (playerScore > computerScore) {
-        playerWins();
-    } else if (playerScore < computerScore) {
-        computerWins();
-    } else {
-        draw();
     }
 }
 
