@@ -1,3 +1,11 @@
+const buttonRock = document.querySelector('.rock');
+const buttonPaper = document.querySelector('.paper');
+const buttonScissors = document.querySelector('.scissors');
+
+buttonRock.addEventListener('click', getPlayerChoice);
+buttonPaper.addEventListener('click', getPlayerChoice);
+buttonScissors.addEventListener('click', getPlayerChoice);
+
 function getPlayerChoice() {
     let playerChoice = prompt('Pick rock, paper or scissors').toLowerCase();
     while (!(playerChoice === 'rock') && !(playerChoice === 'paper') && !(playerChoice === 'scissors')) {
