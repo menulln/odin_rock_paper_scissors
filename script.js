@@ -42,7 +42,7 @@ function playRound() {
             } else if (computerChoice === 'paper') {
                 computerScore++;
                 computerScoreElement.textContent = computerScore;
-                if (computerChoice === 5) {
+                if (computerScore === 5) {
                     result.textContent = 'Computer won the game.';
                     return;
                 }
@@ -74,7 +74,7 @@ function playRound() {
             } else {
                 computerScore++;
                 computerScoreElement.textContent = computerScore;
-                if (computerChoice === 5) {
+                if (computerScore === 5) {
                     result.textContent = 'Computer won the game.';
                     return;
                 }
@@ -85,7 +85,7 @@ function playRound() {
             if (computerChoice === 'rock') {
                 computerScore++;
                 computerScoreElement.textContent = computerScore;
-                if (computerChoice === 5) {
+                if (computerScore === 5) {
                     result.textContent = 'Computer won the game.';
                     return;
                 }
