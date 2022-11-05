@@ -1,0 +1,21 @@
+.game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons {
+    height: 640px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+
+.game-button {
+    width: 200px;
+    height: 200px;
+    font-size: 32px;
+}
